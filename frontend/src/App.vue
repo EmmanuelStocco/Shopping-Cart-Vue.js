@@ -15,6 +15,7 @@
             :prod="internet"
             :prod_selected="inCart(internet)"
               @add-prod-cart="addCart"   
+              @remove-prod-cart="removeCart"
             />
          </scroll-view>
       </div>
@@ -29,6 +30,7 @@
               :prod_selected="inCart(phone)"
               :disabled="cart < 1 ? true : false"
               @add-prod-cart="addCart"
+              @remove-prod-cart="removeCart"
               />
           </scroll-view>
       </div> 
@@ -42,6 +44,7 @@
               :prod_selected="inCart(tv)"
               :disabled="cart < 1 ? true : false"
               @add-prod-cart="addCart"  
+              @remove-prod-cart="removeCart"
               />
          </scroll-view>
       </div>
@@ -112,6 +115,14 @@ export default {
 
     inCart(product) {
       return this.cart.indexOf(product) != -1
+    },
+
+    removeCart(product){
+      const cartNew = this.cart.filter((item, i) => {
+        return item != product
+      });
+      this.cart = cartNew;
+      this.valueTotal = this.valueTotal - product.price
     },
 
     addCart(product){ 

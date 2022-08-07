@@ -6,7 +6,16 @@
       >
         <h6> {{ prod.title }} </h6>
         <p> R$: {{ prod.price }}</p> 
-        <button v-if="prod.type_item == 'internet'" :title=prod.description> - detalhes </button> 
+
+        <button
+             v-if="prod.type_item == 'internet'" 
+             :title=prod.description
+        > - detalhes </button> 
+
+        <button 
+            v-if="prod_selected" 
+            v-on:click.prevent="removeCart(prod)"
+        > Remover do Carrinho </button> 
     </button>
 </template>
 
@@ -30,6 +39,10 @@ export default ({
     methods: {
         addCart (prod) {
             this.$emit('add-prod-cart', prod)
+        },
+
+        removeCart(prod){
+            this.$emit('remove-prod-cart', prod)
         }
     }
 })
@@ -44,6 +57,7 @@ export default ({
   margin-right: 7.5px;
   width: 200px;
   height: 200px;
+  cursor: pointer;
 }
 
 .card:hover {
