@@ -1,0 +1,41 @@
+{
+  "phone": [
+    {
+      "id": 1,
+      "title": "Fixo: Ilimitado Fixo Brasil"
+    },
+    {
+      "title": "teste: phone",
+      "id": 2
+    }
+  ],
+  "tv": [
+    {
+      "id": 1,
+      "title": "Ultimate HD - TV",
+      "full_hd": false
+    },
+    {
+      "id": 2,
+      "title": "Full HD - TV",
+      "full_hd": true
+    }
+  ],
+  "internet": [
+    {
+      "id": 1,
+      "title": "100MB",
+      "m_value": 100
+    },
+    {
+      "id": 2,
+      "title": "200MB",
+      "m_value": 200
+    },
+    {
+      "id": 3,
+      "title": "300MB",
+      "m_value": 300
+    }
+  ]
+}
