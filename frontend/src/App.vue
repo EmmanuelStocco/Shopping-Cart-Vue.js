@@ -1,14 +1,11 @@
 <template>
   <div id="app" class="app">
-    <nav>
-      <div class="nav-wrapper blue darken-1">
-        <a href="#" class="brand-logo center">M2 Carrinho de Compras </a>
-      </div>
-    </nav>
+   
+
 
     <content class="content">    
       <div>
-         <h3> Internet </h3>
+          <h3> Internet </h3>
           <h5>Selecione um plano de internet para continuar </h5>
           <scroll-view v-for="(internet, index) in internetAll" :key="index">
           <Card 
@@ -19,7 +16,6 @@
             />
          </scroll-view>
       </div>
-
 
       <div>
          <h3> Telefone </h3>
@@ -53,10 +49,7 @@
         <h3> Taxa de instalação    - gratis</h3>
         <h3> Total R$: {{valueTotal}} /mês</h3>
         <button> Continuar </button>
-      </div>
-     
-
-
+      </div>  
     </content>
   </div>
 </template>
@@ -75,8 +68,7 @@ export default {
       cart: [],  
       valueTotal: 0
     }
-  },
-
+  }, 
 
   mounted() {
     this.listInternet();
@@ -133,8 +125,7 @@ export default {
         })  
       this.cart.push(product);  
       this.valueTotal = this.valueTotal + product.price
-    }}
-  
+    }} 
 }
 
 </script>
@@ -147,12 +138,32 @@ export default {
 .content {
   display: inline-block;
   align-items: center;
-  padding: 10px;
+  padding: 10px;   
+  border: 1px outset #1C6EA4;
 }
 
-.app {}
+.app {
+  margin-left: 15%;
+  margin-right: 15%; 
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .cart {
   background-color: red;
+}
+
+.nav-wrapper{
+  background-color:#007aff;
+}
+
+h3 {
+  color: #a600ff
+}
+
+h5 {
+  color: #6b7e92
 }
 </style>
