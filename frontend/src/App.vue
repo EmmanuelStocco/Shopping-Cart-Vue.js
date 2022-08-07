@@ -8,18 +8,6 @@
 
     <content class="content">    
       <div>
-         <h3> Telefone </h3>
-         <h5>Selecione um plano de internet para continuar </h5>
-          <scroll-view v-for="(phone, index) in phoneAll" :key="index">
-            <Card 
-              :prod="phone"   
-              :prod_selected="inCart(phone)"
-              @add-prod-cart="addCart"
-              />
-          </scroll-view>
-      </div>
-
-      <div>
          <h3> Internet </h3>
           <h5>Selecione um plano de internet para continuar </h5>
           <scroll-view v-for="(internet, index) in internetAll" :key="index">
@@ -31,6 +19,20 @@
          </scroll-view>
       </div>
 
+
+      <div>
+         <h3> Telefone </h3>
+         <h5>Selecione um plano de internet para continuar </h5>
+          <scroll-view v-for="(phone, index) in phoneAll" :key="index">
+            <Card 
+              :prod="phone"   
+              :prod_selected="inCart(phone)"
+              :disabled="cart < 1 ? true : false"
+              @add-prod-cart="addCart"
+              />
+          </scroll-view>
+      </div> 
+
       <div>
          <h3> TV </h3>
           <h5>Selecione um plano de internet para continuar </h5>
@@ -38,18 +40,25 @@
             <Card 
               :prod="tv" 
               :prod_selected="inCart(tv)"
+              :disabled="cart < 1 ? true : false"
               @add-prod-cart="addCart"  
               />
          </scroll-view>
       </div>
 
-      
+      <div class="cart">
+        <h3> Taxa de instalação    - gratis</h3>
+        <h3> Total R$: {{valueTotal}} /mês</h3>
+        <button> Continuar </button>
+      </div>
+     
+
+
     </content>
   </div>
 </template>
 
-<script>
-
+<script> 
 import Product from './services/products'; 
 import Card from '../src/components/Card.vue';
 export default {
@@ -61,6 +70,7 @@ export default {
       tvAll: [],
       internetAll: [],
       cart: [],  
+      valueTotal: 0
     }
   },
 
@@ -104,17 +114,16 @@ export default {
       return this.cart.indexOf(product) != -1
     },
 
-    addCart(product){
-      //se existir um item de igual type 
-      //deve ser excluido e sobreescrito um novo produto de mesmo tpye 
+    addCart(product){ 
       this.cart.map((e, index) => {
         if(e.type_item == product.type_item){
           this.cart.splice(index); 
           }    
         })  
       this.cart.push(product);  
+      this.valueTotal = this.valueTotal + product.price
     }}
-     
+  
 }
 
 </script>
@@ -131,4 +140,8 @@ export default {
 }
 
 .app {}
+
+.cart {
+  background-color: red;
+}
 </style>

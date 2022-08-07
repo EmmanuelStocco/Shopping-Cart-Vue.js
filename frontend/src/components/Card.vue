@@ -5,7 +5,7 @@
          v-on:click.prevent="addCart(prod)" 
       >
         <h6> {{ prod.title }} </h6>
-        <p> {{ prod.price }}</p> 
+        <p> R$: {{ prod.price }}</p> 
         <button v-if="prod.type_item == 'internet'" :title=prod.description> - detalhes </button> 
     </button>
 </template>
