@@ -11,7 +11,10 @@
          <h3> Telefone </h3>
          <h5>Selecione um plano de internet para continuar </h5>
           <scroll-view v-for="(phone, index) in phoneAll" :key="index">
-            <Card :prod="phone"   
+            <Card 
+              :prod="phone"   
+              :prod_selected="inCart(phone)"
+              @add-prod-cart="addCart"
               />
           </scroll-view>
       </div>
@@ -20,7 +23,10 @@
          <h3> Internet </h3>
           <h5>Selecione um plano de internet para continuar </h5>
           <scroll-view v-for="(internet, index) in internetAll" :key="index">
-          <Card :prod="internet"   
+          <Card 
+            :prod="internet"
+            :prod_selected="inCart(internet)"
+              @add-prod-cart="addCart"   
             />
          </scroll-view>
       </div>
@@ -29,7 +35,10 @@
          <h3> TV </h3>
           <h5>Selecione um plano de internet para continuar </h5>
            <scroll-view v-for="(tv, index) in tvAll" :key="index">
-            <Card :prod="tv"   
+            <Card 
+              :prod="tv" 
+              :prod_selected="inCart(tv)"
+              @add-prod-cart="addCart"  
               />
          </scroll-view>
       </div>
@@ -51,9 +60,7 @@ export default {
       phoneAll: [],
       tvAll: [],
       internetAll: [],
-      cart: [],
-      
-      internetSelected: []
+      cart: [],  
     }
   },
 
@@ -94,10 +101,20 @@ export default {
     }, 
 
     inCart(product) {
-            return this.cart.indexOf(product) != -1
+      return this.cart.indexOf(product) != -1
     },
-    
-  }
+
+    addCart(product){
+      //se existir um item de igual type 
+      //deve ser excluido e sobreescrito um novo produto de mesmo tpye 
+      this.cart.map((e, index) => {
+        if(e.type_item == product.type_item){
+          this.cart.splice(index); 
+          }    
+        })  
+      this.cart.push(product);  
+    }}
+     
 }
 
 </script>

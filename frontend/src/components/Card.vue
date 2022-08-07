@@ -1,10 +1,12 @@
 <template>
-      <button class="card" >
+      <button
+         class="card"
+         :disabled="prod_selected" 
+         v-on:click.prevent="addCart(prod)" 
+      >
         <h6> {{ prod.title }} </h6>
-        <p> {{ prod.price }}</p>
-
-
-         <button v-if="prod.type_item == 'internet'" :title=prod.description> - detalhes </button> 
+        <p> {{ prod.price }}</p> 
+        <button v-if="prod.type_item == 'internet'" :title=prod.description> - detalhes </button> 
     </button>
 </template>
 
@@ -19,12 +21,17 @@ export default ({
             itemType: String
         },
         prod_selected: {
-            type: Object,
+            type: Boolean,
             required: false,
             default: false,
             itemType: String
         }, 
-    } 
+    },
+    methods: {
+        addCart (prod) {
+            this.$emit('add-prod-cart', prod)
+        }
+    }
 })
 </script>
 
