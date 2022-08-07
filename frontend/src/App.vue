@@ -1,101 +1,76 @@
 <template>
-  <div id="app">
-
+  <div id="app" class="app"> 
     <nav>
       <div class="nav-wrapper blue darken-1">
-        <a href="#" class="brand-logo center">Produtos Front</a>
+        <a href="#" class="brand-logo center">M2 Carrinho de Compras </a>
       </div>
     </nav>
 
-    <!-- <div class="container">
+    <content class="content">
+      <h3> Internet </h3>
+      <h5>Selecione um plano de internet para continuar </h5>
+      <!-- cards plano de internet -->
+      <scroll-view
+          v-for="(internet, index) in internetAll" :key="index"
+      >       
+          <CardInternet
+            :internet_prod="internet" 
+          />
+      </scroll-view>  
 
-      <ul>
-        <li v-for="(erro, index) of errors" :key="index">
-          campo <b>{{erro.field}}</b> - {{erro.defaultMessage}}
-        </li>
-      </ul>
+      <h3> Um plano de Tv é sempre bom!  </h3>
+      <h5>Agora escolha seu pacote de TV </h5>
+      <scroll-view v-for="(tv, index) in tvAll" :key="index">
+        <CardInternet
+          :internet_prod="tv" />
+      </scroll-view>
+
+      <h3> Fixo </h3>
+      <h5>Agora escolha seu pacote de telefone fixo </h5>
+      <scroll-view v-for="(phone, index) in phoneAll" :key="index">
+        <CardInternet
+          :internet_prod="phone" />
+      </scroll-view>
 
 
-      <form @submit.prevent="salvar">
+      <hr>
 
-          <label>Nome</label>
-          <input type="text" placeholder="Nome" v-model="produto.nome" >
-          <label>Quantidade</label>
-          <input type="number" placeholder="QTD" v-model="produto.quantidade" >
-          <label>Valor</label>
-          <input type="text" placeholder="Valor" v-model="produto.valor" >
+      <h3> Taxa de instalação    - gratis</h3>
+      <h3> Total R$: 00/mês</h3>
 
-          <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
-
-      </form>
-
-      <table>
-
-        <thead>
-
-          <tr>
-            <th>NOME</th>
-            <th>QTD</th>
-            <th>VALOR</th>
-            <th>OPÇÕES</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr v-for="produto of produtos" :key="produto.id">
-
-            <td>{{ produto.nome }}</td>
-            <td>{{ produto.quantidade }}</td>
-            <td>{{ produto.valor }}</td>
-            <td>
-              <button @click="editar(produto)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
-              <button @click="remover(produto)" class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
-            </td>
-
-          </tr>
-
-        </tbody>
-      
-      </table>
-
-    </div> -->
-
+      <button> Continuar </button>
+    </content>
   </div>
 </template>
 
 <script>
-
-import Produto from './services/produtos'
+ 
 import Product from './services/products'
+import CardInternet from '../src/components/CardInternet.vue'
 
 export default {
   name: 'app',
-  data() {
-    return {
-      produto: {
-        id: '',
-        nome: '',
-        quantidade: '',
-        valor: ''
-      },
-      produtos: [],
-      errors: [],
 
+  data() {
+    return { 
       phoneAll: [],
       tvAll: [],
       internetAll: []
     }
-  },
+  }, 
 
   mounted() {
-    this.listProducts()
+    this.listInternet();
+    this.listTv();
+    this.listPhones();
+  },
 
+  components: {
+    CardInternet
   },
 
   methods: {
-    listProducts() {
+    listPhones() {
       Product.listPhones().then(response => {
         this.phoneAll = response.data
       }).catch(error => {
@@ -111,7 +86,7 @@ export default {
       })
     },
 
-    listTv() {
+    listInternet() {
       Product.listInternet().then(response => {
         this.internetAll = response.data
       }).catch(error => {
@@ -119,10 +94,23 @@ export default {
       })
     },
 
-  }
-
+  } 
 }
+
 </script>
 
 <style>
+  .container {
+    flex-direction: row; 
+  }
+
+  .content {  
+    display: inline-block
+  }
+
+  .app { 
+    
+
+  }
+
 </style>
