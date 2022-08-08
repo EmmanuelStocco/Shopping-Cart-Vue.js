@@ -1,8 +1,5 @@
 <template>
-  <div id="app" class="app">
-   
-
-
+  <div id="app" class="app"> 
     <content class="content">    
       <div>
           <h3> Internet </h3>
@@ -45,10 +42,18 @@
          </scroll-view>
       </div>
 
+      <hr />
+
       <div class="cart">
-        <h3> Taxa de instalação    - gratis</h3>
-        <h3> Total R$: {{valueTotal}} /mês</h3>
-        <button> Continuar </button>
+        <div class="tx"> 
+          <h5>Taxa de instalação</h5>
+          <h5 style="color: '#a600ff'">gratis </h5>
+        </div>
+        <div class="tx">
+           <h5> Valor Total</h5> 
+           <h5> R$: {{valueTotal}} /mês </h5>
+        </div>
+        <button class="button_final"> Continuar </button>
       </div>  
     </content>
   </div>
@@ -140,19 +145,25 @@ export default {
   align-items: center;
   padding: 10px;   
   border: 1px outset #1C6EA4;
+  background-color: #F8F8FF
 }
 
-.app {
-  margin-left: 15%;
-  margin-right: 15%; 
+.app { 
   align-items: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+  background-color: #e2e2f1e5;
+  font-family: Arial, Helvetica, sans-serif;
+
+  
 }
 
-.cart {
-  background-color: red;
+.cart { 
+   
+  padding-left: 10px;
+  padding-right: 10px;
+
 }
 
 .nav-wrapper{
@@ -165,5 +176,32 @@ h3 {
 
 h5 {
   color: #6b7e92
+}
+
+.tx {
+  font-size: 16px;
+  flex-direction: row; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.button_final {
+  display: flex; 
+  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-left: 40%;
+  margin-right: 50%;
+
+  background-color: #007aff; /* Green */
+  border: none;
+  color: white;
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 2px;
+  width: 200px;
+  height: 35px;
 }
 </style>
