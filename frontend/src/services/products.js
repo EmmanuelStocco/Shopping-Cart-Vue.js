@@ -11,5 +11,10 @@ export default {
 
     listInternet: () => {
         return http.get('internet')
+    },
+
+    dataPost: (cart) => {
+        //console.log(cart)
+        return http.post('dataPosted', cart)
     }
 }

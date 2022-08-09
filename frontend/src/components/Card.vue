@@ -7,20 +7,24 @@
         <h6> {{ prod.title }} </h6>
         <p> R$: {{ prod.price }}</p>  
 
-      
-        <img src="../assets/mais.png" alt="saiba mais" 
-            style="max-width: 20px; color: #a600ff; cursor: help; margin-top: 10px;"
-            v-if="prod.type_item == 'internet'"  
-                :title=prod.description
-         >  
+            <div class="remov_button" >
+              
+            
+             <img 
+                src="../assets/mais.png" 
+                alt="saiba mais" 
 
-           <div>
-            <button 
+                style="max-width: 20px; cursor: help"
+                    v-if="prod.type_item == 'internet'"  
+                        :title=prod.description
+                >  
+
+                <button 
                 v-if="prod_selected" 
                 v-on:click.prevent="removeCart(prod)"
                 class="remove_button"
-            > Remover  do Carrinho </button>  
-        </div>
+            > Remover  do Carrinho </button> 
+            </div>
     </button>
 </template>
 
@@ -61,7 +65,7 @@ export default ({
     transition: 0.3s;
     margin-left: 7.5px;
     margin-right: 7.5px;
-    width: 200px;
+    width: 200px;  
     height: 200px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -80,15 +84,21 @@ export default ({
 }
 
 .remove_button {
-    background-color: #d10e0ee0; /* Green */
+  background-color: #d10e0ee0; /* Green */
   border: none;
   color: white;
-  padding: 2px 4px;
+  padding: 4px 8px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 2px;
-  
+  display: inline-block; 
+  border-radius: 4px;
+  margin-right: 2px;
 }
+
+.remov_button { 
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
 </style>
