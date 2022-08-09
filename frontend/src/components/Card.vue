@@ -7,18 +7,20 @@
         <h6> {{ prod.title }} </h6>
         <p> R$: {{ prod.price }}</p>  
 
-        <div>
+      
+        <img src="../assets/mais.png" alt="saiba mais" 
+            style="max-width: 20px; color: #a600ff; cursor: help; margin-top: 10px;"
+            v-if="prod.type_item == 'internet'"  
+                :title=prod.description
+         >  
+
+           <div>
             <button 
                 v-if="prod_selected" 
                 v-on:click.prevent="removeCart(prod)"
                 class="remove_button"
             > Remover  do Carrinho </button>  
         </div>
-        <img src="../assets/saibaMais.jpg" alt="saiba mais" 
-            style="max-width: 20px; color: #a600ff; cursor: help; margin-top: 20px;"
-            v-if="prod.type_item == 'internet'"  
-                :title=prod.description
-         >  
     </button>
 </template>
 

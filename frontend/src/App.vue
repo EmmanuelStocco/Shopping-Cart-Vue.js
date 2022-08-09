@@ -55,13 +55,16 @@
         </div>
         <button class="button_final"> Continuar </button>
       </div>  
+  
+       
     </content>
   </div>
 </template>
 
 <script> 
 import Product from './services/products'; 
-import Card from '../src/components/Card.vue';
+import Card from '../src/components/Card.vue'; 
+
 export default {
   name: 'app',
 
@@ -82,7 +85,7 @@ export default {
   },
 
   components: { 
-    Card
+    Card, 
   },
 
   methods: {
@@ -145,7 +148,8 @@ export default {
   align-items: center;
   padding: 10px;   
   border: 1px outset #1C6EA4;
-  background-color: #F8F8FF
+  background-color: #F8F8FF;
+  margin-bottom: 20px;
 }
 
 .app { 
@@ -155,7 +159,6 @@ export default {
   justify-content: center; 
   background-color: #e2e2f1e5;
   font-family: Arial, Helvetica, sans-serif;
-
   
 }
 
