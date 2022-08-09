@@ -1,0 +1,62 @@
+{
+  "phone": [
+    {
+      "id": 1,
+      "title": "Fixo: Ilimitado Fixo Brasil",
+      "price": 49.90,
+      "type_item": "phone"
+    } 
+  ],
+  "tv": [
+    {
+      "id": 1,
+      "title": "Ultimate HD - TV",
+      "price":103.90,
+      "full_hd": false,
+      "type_item": "tv"
+    },
+    {
+      "id": 2,
+      "title": "Full HD - TV",
+      "price":204.90,
+      "full_hd": true,
+      "type_item": "tv"
+    }
+  ],
+  "internet": [
+    {
+      "id": 1,
+      "title": "1 MEGA",
+      "m_value": 100,
+      "price": 34.90,
+      "description": "Internet ideal para usuários pouco exigentes.",
+      "type_item": "internet"
+      
+    },
+    {
+      "id": 2,
+      "title": "2 MEGA",
+      "m_value": 200,
+      "price": 49.90,
+      "description": "Internet ideal para usuários utilizam da internet para navegar, procurar informações e pesquisa.",
+      "type_item": "internet"
+
+    },
+    {
+      "id": 3,
+      "title": "4 MEGA",
+      "m_value": 400,
+      "price": 79.90,
+      "type_item": "internet",
+      "description": "Plano ideal para aqueles usuários mais exigentes, que necessitam para trabalhar e estudar."
+    },
+    {
+      "id": 4,
+      "title": "8 MEGA",
+      "m_value": 800,
+      "price": 99.90,
+      "description": "Plano perfeito para usuários exigentes, que utilizam da internet para jogar, baixar e atividades mais pesadas",
+      "type_item": "internet"
+    }
+  ]
+}
