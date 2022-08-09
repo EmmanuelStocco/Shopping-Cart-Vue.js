@@ -138,12 +138,15 @@ export default {
         return item != product
       });
       this.cart = cartNew;
-      this.valueTotal = this.valueTotal - product.price
+      let x = this.valueTotal - product.price
+      this.valueTotal =  +(x.toFixed(2))
     }, 
 
     addCart(product) {
       this.cart.map((e, index) => {
         if (e.type_item == product.type_item) {
+          let x = this.valueTotal - e.price
+          this.valueTotal = +(x.toFixed(2))
           this.cart.splice(index);
         }
       })

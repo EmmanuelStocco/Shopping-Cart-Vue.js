@@ -1,23 +1,8 @@
-# produtos-front
+### API externa 
+O backend desse projeto foi criado a partir de uma fake-api
+Ele se encontra em: https://my-json-server.typicode.com/EmmanuelStocco/Shopping-cart-Vue
+
+# Startar projeto
 Versão CLI: Vue CLI 3
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-### Back-end 
-https://github.com/MichelliBrito/produtos-apirest
+Todo o projeto local está incluso em container Docker. Para startar
+o projeto, basta rodar "docker-compose up" dentro do diretorio front-end
